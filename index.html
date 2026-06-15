@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lost Cities — Echoes from the Forgotten Earth</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" onclick="showPage('home')">⚜ Lost Cities</a>
+  <ul class="nav-links">
+    <li><a onclick="showPage('home')" class="active" id="nav-home">Explore</a></li>
+    <li><a onclick="showPage('tech')" id="nav-tech">Technologies</a></li>
+    <li><a onclick="showPage('about')" id="nav-about">About</a></li>
+  </ul>
+</nav>
+
+<!-- ══════════════════════════════════════════ PAGE: HOME ══════════════════════════════════════════ -->
+<div class="page active" id="page-home">
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-img-layer"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-ring hero-ring-1"></div>
+    <div class="hero-ring hero-ring-2"></div>
+    <div class="hero-ring hero-ring-3"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Echoes of the Forgotten World</p>
+      <h1 class="hero-title">Lost Cities</h1>
+      <p class="hero-sub">Ten forgotten cities — swallowed by jungle, sand, sea, and time — whose secrets are only now beginning to resurface.</p>
+      <div class="hero-cta">
+        <button class="btn btn-solid" onclick="document.getElementById('cities').scrollIntoView({behavior:'smooth'})">Discover Cities</button>
+        <button class="btn" onclick="showPage('tech')">Technologies Used</button>
+      </div>
+    </div>
+    <div style="position:absolute;bottom:2rem;left:0;right:0;display:flex;flex-direction:column;align-items:center;gap:0.5rem;opacity:0;animation:fadeUp 1s 1.8s forwards;z-index:2;"><span style="font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.3em;color:#7a6230;">Scroll</span><div style="width:1px;height:50px;background:linear-gradient(to bottom,#7a6230,transparent);animation:scrollPulse 2s infinite;"></div></div>
+  </section>
+
+  <!-- CITIES -->
+  <section id="cities">
+    <div class="container">
+      <div class="cities-intro reveal visible">
+        <p class="section-label">The Forgotten Ten</p>
+        <h2 class="section-title">Cities Lost to History</h2>
+        <div class="section-divider"></div>
+        <p>From the jungles of Cambodia to the deserts of Arabia, these cities were once the beating hearts of great civilisations — then vanished, leaving behind only whispers in stone. Click any city to explore its full story.</p>
+      </div>
+      <div class="cities-grid" id="citiesGrid"></div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ══════════════════════════════════════════ PAGE: TECH ══════════════════════════════════════════ -->
+<div class="page" id="page-tech">
+  <div style="height:70px"></div>
+
+  <section id="technologies">
+    <div class="container">
+      <p class="section-label reveal">Modern Archaeology</p>
+      <h2 class="section-title reveal">Technologies Unlocking the Past</h2>
+      <div class="section-divider reveal"></div>
+      <p style="color:var(--parchment-dark);max-width:700px;margin-bottom:4rem;line-height:1.9;font-size:0.95rem" class="reveal">
+        Lost cities are no longer found purely with a pickaxe. A new generation of tools — many pioneered by explorers like Albert Lin — uses satellite imagery, artificial intelligence, and laser light to reveal what the naked eye could never see.
+      </p>
+
+      <div id="techRows"></div>
+
+      <!-- LiDAR Gallery Strip -->
+      <div class="reveal" style="margin-top:2rem">
+        <p class="section-label" style="margin-bottom:1.5rem">LiDAR in Action — Site Comparisons</p>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem">
+          <div style="position:relative;overflow:hidden;border:1px solid rgba(201,168,76,0.2)">
+            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=500&q=80" alt="Satellite view" style="width:100%;height:200px;object-fit:cover;filter:sepia(10%) hue-rotate(200deg) contrast(120%) brightness(0.6);display:block">
+            <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(10,8,4,0.9));padding:0.8rem;font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.15em;color:var(--gold)">SATELLITE OPTICAL</div>
+          </div>
+          <div style="position:relative;overflow:hidden;border:1px solid rgba(201,168,76,0.2)">
+            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=500&q=80" alt="LiDAR point cloud" style="width:100%;height:200px;object-fit:cover;filter:sepia(0%) hue-rotate(120deg) saturate(200%) contrast(130%) brightness(0.55);display:block">
+            <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(10,8,4,0.9));padding:0.8rem;font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.15em;color:var(--gold)">LiDAR POINT CLOUD</div>
+          </div>
+          <div style="position:relative;overflow:hidden;border:1px solid rgba(201,168,76,0.2)">
+            <img src="https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=500&q=80" alt="Terrain model" style="width:100%;height:200px;object-fit:cover;filter:sepia(40%) contrast(115%) brightness(0.65);display:block">
+            <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(10,8,4,0.9));padding:0.8rem;font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.15em;color:var(--gold)">BARE-EARTH MODEL</div>
+          </div>
+        </div>
+        <p style="font-size:0.8rem;color:var(--parchment-dark);margin-top:1rem;font-style:italic">LiDAR strips vegetation returns to reveal the true terrain surface — exposing walls, roads, and platforms invisible from above.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════════════════════════════════════ PAGE: ABOUT ══════════════════════════════════════════ -->
+<div class="page" id="page-about">
+  <div style="height:70px"></div>
+
+  <section id="about">
+    <div class="container">
+      <div class="about-hero reveal">
+        <div class="about-text">
+          <p class="section-label">About the Creator</p>
+          <div class="about-author-row">
+            <div>
+              <h2 style="font-family:'Cinzel Decorative',serif;font-size:1.6rem;color:var(--gold);margin-bottom:0.2rem">Manuni Bhavsar</h2>
+              <p class="role" style="margin-bottom:0">Explorer · Historian · Technologist</p>
+            </div>
+          </div>
+          <div class="section-divider"></div>
+          <p>I am <em>Manuni Bhavsar</em>, a passionate explorer of ancient history and emerging technologies. My journey began not in a classroom but through wonder — the same kind of wonder that drives archaeologists to crawl through jungle undergrowth or dive into submerged ruins.</p>
+          <p>I was profoundly inspired by <em>Albert Lin</em>, National Geographic Explorer-at-Large, whose groundbreaking use of LiDAR, AI, and satellite imaging has fundamentally transformed how we find and study lost civilisations. His philosophy — that technology should extend our senses, not replace human curiosity — resonates deeply with everything I create.</p>
+          <p>This website is my tribute to the cities that shaped humanity and the tools that are bringing them back to light. Every card, every map, every myth recorded here is a step toward making these stories accessible to all.</p>
+
+          <div class="albert-box">
+            <h3>Inspired by Albert Lin & His Technologies</h3>
+            <p>Albert Lin, PhD, is a researcher, engineer, and National Geographic Explorer who has spent over a decade combining cutting-edge technology with archaeological exploration. His work discovering Genghis Khan's tomb, mapping Angkor's hidden suburbs, and locating Maya mega-cities under the Guatemalan canopy has redefined modern archaeology.</p>
+            <p>His core belief: <em>"We don't have to dig to discover."</em> By combining remote sensing, crowd-sourcing, and machine learning, Lin makes exploration non-destructive and globally collaborative.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- LiDAR visual banner -->
+      <div class="reveal" style="margin-bottom:4rem">
+        <div style="position:relative;border:1px solid rgba(201,168,76,0.25);overflow:hidden">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80" alt="LiDAR terrain visualisation" style="width:100%;height:280px;object-fit:cover;filter:sepia(20%) hue-rotate(160deg) contrast(120%) brightness(0.7);display:block">
+          <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,8,4,0.85) 0%,rgba(10,8,4,0.3) 60%,transparent 100%);display:flex;align-items:center;padding:2.5rem">
+            <div>
+              <p style="font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.4em;color:var(--gold);margin-bottom:0.5rem">FEATURED TECHNOLOGY</p>
+              <h3 style="font-family:'Cinzel Decorative',serif;font-size:1.6rem;color:var(--parchment);margin-bottom:0.7rem">LiDAR — Seeing Through Jungles</h3>
+              <p style="font-size:0.85rem;color:var(--parchment-dark);max-width:460px;line-height:1.7">Light Detection and Ranging fires 400,000 laser pulses per second from aircraft. Pulses that slip through jungle canopy gaps bounce off the ground, building a bare-earth elevation model that reveals hidden cities, roads, and reservoirs invisible to the human eye or conventional satellite.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:5rem" class="reveal">
+        <p class="section-label">Albert Lin — Timeline of Discovery</p>
+        <h2 class="section-title">A Decade of Breakthroughs</h2>
+        <div class="section-divider"></div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <h4>2008 — The Search for Genghis Khan's Tomb</h4>
+            <p>Lin led the Valley of the Khans Project in Mongolia, using satellite imagery and crowdsourced analysis from 10,000+ volunteers online. This was one of the first large-scale citizen science archaeological surveys, producing results without disturbing a single centimetre of sacred Mongolian soil.</p>
+          </div>
+          <div class="timeline-item">
+            <h4>2014 — LiDAR over Angkor Wat</h4>
+            <p>The Khmer Archaeology LiDAR Consortium flew LiDAR sensors over the jungle surrounding Angkor Wat, revealing a previously unknown medieval city of hundreds of square kilometres — instantly making it the largest pre-industrial urban settlement ever discovered. Lin's own remote-sensing work used similar LiDAR techniques at sites like Ciudad Perdida in Colombia.</p>
+          </div>
+          <div class="timeline-item">
+            <h4>2018 — Maya Mega-City, Guatemala</h4>
+            <p>Lin presented the PACUNAM LiDAR Initiative's findings in a National Geographic special, showcasing the discovery of over 60,000 previously unknown Maya structures beneath the Guatemalan jungle — including pyramids, causeways, and irrigation systems — through an augmented-reality visualization of the survey data.</p>
+          </div>
+          <div class="timeline-item">
+            <h4>2019 — Petra's Hidden Origins, Jordan</h4>
+            <p>In an episode of "Lost Cities with Albert Lin," Lin investigated Petra's Nabataean origins, tracking down evidence of cities and temples that revealed the famous rock-cut city was part of a far larger ancient network than previously understood.</p>
+          </div>
+          <div class="timeline-item">
+            <h4>2022 — AI-Assisted Site Detection</h4>
+            <p>Lin's teams began integrating machine-learning algorithms trained on known archaeological sites to automatically flag potential ruins in satellite imagery across vast regions of the Amazon and Sahara, reducing survey time from decades to weeks.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════════════════════════════════════ FOOTER (shared) ══════════════════════════════════════════ -->
+<footer>
+  <span class="footer-logo">⚜ Lost Cities</span>
+  <div class="footer-links">
+    <a href="mailto:manunibhavsar@gmail.com">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+      manunibhavsar
+    </a>
+    <a href="https://www.linkedin.com/in/manuni-bhavsar-877329381?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+      Manuni Bhavsar
+    </a>
+  </div>
+  <p class="footer-copy">Crafted with curiosity · Inspired by Albert Lin's vision · © 2025 Manuni Bhavsar</p>
+  <p class="footer-copy" style="margin-top:0.6rem;font-size:0.7rem;opacity:0.7">🎵 Background music: <em>Arabian Nights (2019) (Instrumental)</em> · Alan Menken · Howard Ashman · Benj Pasek · Justin Paul · All rights reserved to respective owners. Used for non-commercial purposes only.</p>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+  <div class="modal" id="modal">
+    <button class="modal-close" onclick="closeModalDirect()">✕</button>
+    <div id="modalContent"></div>
+  </div>
+</div>
+
+<!-- ── BACKGROUND AUDIO ── -->
+<audio id="bgAudio" loop></audio>
+
+<div id="audioToggle" onclick="toggleAudio()" title="Toggle Music" style="position:fixed;bottom:2rem;right:2rem;z-index:5000;width:48px;height:48px;border-radius:50%;background:rgba(10,8,4,0.85);border:1px solid rgba(201,168,76,0.5);display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 0 18px rgba(201,168,76,0.2);transition:all 0.3s;backdrop-filter:blur(8px);">
+  <span id="audioIcon" style="font-size:1.2rem">🔇</span>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
